@@ -26,9 +26,15 @@
                 padding: 0;
                 background: radial-gradient(ellipse at center, #6f98dd 0%, #0f213e 100%);
             }
+            
+            @keyframes fade-in-animation {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
 
             #content-container {
                 min-height: 276px;
+                animation: fade-in-animation .6s ease-in;
                 }
                 
                 #content-container h1 {
