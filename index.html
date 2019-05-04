@@ -24,6 +24,9 @@
                 min-height: 100vh;
                 margin: 0;
                 padding: 0;
+            }
+            
+            body {
                 background: radial-gradient(ellipse at center, #6f98dd 0%, #0f213e 100%);
             }
             
@@ -49,6 +52,12 @@
                 #content-container svg {
                     height: 150px;
                     width: 150px;
+            }
+            
+            @media (max-width: 400px) {
+                body {
+                    background: radial-gradient(ellipse at center, #6f98dd 20%, #0f213e 100%);
+                }
             }
         </style>
 
