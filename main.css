@@ -1,18 +1,11 @@
-:root {
-    --main-background-color: #888;
-}
-
-
 html,
 body,
 #page-container {
     min-width: 100vw;
     min-height: 100vh;
-    
     margin: 0;
     padding: 0;
-
-    background-color: var(--main-background-color);
+    background: radial-gradient(ellipse at center, #6f98dd 0%, #0f213e 100%);
 }
 
 #page-container {
@@ -33,10 +26,13 @@ body,
             flex-direction: column;
             font-family: 'Roboto Slab', serif;
             letter-spacing: .5pt;
+            color: #03080f;
             }
             
             #content-container h1 {
                 margin: 0;
+                word-break: keep-all;
+                text-align: center;
             }
             
             #content-container h2 {
@@ -51,9 +47,10 @@ body,
                 #content-container svg {
                     height: 150px;
                     width: 150px;
+                    fill: #03080f;
                 }
                 
                 #content-container svg:hover path {
                     box-shadow: 5px 5px 50px aliceblue;
-                    fill: #ccc;
+                    fill: #d0d1d2;
 }
