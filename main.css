@@ -24,7 +24,6 @@ body,
         #content-container {
             display: flex;
             flex-direction: column;
-            height: 276px;
             font-family: 'Roboto Slab Regular', serif;
             letter-spacing: .5pt;
             color: #03080f;
