@@ -32,6 +32,7 @@ body,
             display: flex;
             flex-direction: column;
             font-family: 'Roboto Slab', serif;
+            letter-spacing: .5pt;
             }
             
             #content-container h1 {
