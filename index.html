@@ -17,6 +17,12 @@
         <title>Luke Pflibsen-Jones</title>
         
         <style>
+            /**
+             * The main stylehseet has the site's font inlined as base64, causing it to frequently load after
+             * the DOM, resulting in elements shifting around and other nastiness. This ensures that the rules
+             * that prevent the nastiness are loaded before the DOM is.
+            **/
+
             html,
             body,
             #page-container {
