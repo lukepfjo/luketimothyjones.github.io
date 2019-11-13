@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <meta property="og:type" content="website">
+        <meta name="robots" content="index, follow">
+        
+        <meta name="referrer" content="origin-when-crossorigin">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#0f213e">
+        
+        <meta property="og:site_name" content="Luke Pflibsen-Jones">
+        
+        <title>Luke Pflibsen-Jones</title>
+        
+        <style>
+            /**
+             * The main stylehseet has the site's font inlined as base64, causing it to frequently load after
+             * the DOM, resulting in elements shifting around and other nastiness. This ensures that the rules
+             * that prevent the nastiness are loaded before the DOM is.
+            **/
+
+            html,
+            body,
+            #page-container {
+                min-width: 100vw;
+                min-height: 100vh;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                background-color: #6f98dd;  /* Fall-back for browsers that don't support radial gradients */
+                background: radial-gradient(ellipse at center, #6f98dd 0%, #0f213e 100%);
+            }
+            
+            @keyframes fade-in-animation {
+                0% { opacity: 0; }
+                100% { opacity: 1; }
+            }
+
+            #content-container {
+                min-height: 276px;
+                animation: fade-in-animation .6s ease-in;
+                }
+                
+                #content-container h1 {
+                    min-height: 44px;
+                }
+                
+                #content-container h2 {
+                    min-height: 33px;
+                }
+                
+                #content-container a,
+                #content-container svg {
+                    height: 150px;
+                    width: 150px;
+            }
+            
+            @media (max-width: 400px) {
+                body {
+                    background-color: #6f98dd;  /* Fall-back for browsers that don't support radial gradients */
+                    background: radial-gradient(ellipse at center, #6f98dd 20%, #0f213e 100%);
+                }
+            }
+        </style>
+
+        <link rel="stylesheet" href="/main.css">
+    </head>
+
+    <body>
+        <div id="page-container">
+            <div class="horizontal-centered">
+                <div id="content-container">
+                    <h1>Cython Basics Presentation Resources</h1>
+                    <h2>Nov. 12th 2019, PyEugene meetup</h2>
+                </div>
+            </div>
+        </div>
+    </body>
+                    
+</html>
