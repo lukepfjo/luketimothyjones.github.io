@@ -75,9 +75,9 @@ function pickerCallback(data, editor_bind) {
         let id = data['docs'][0]['id'];
 
         downloadFile(id, (file_data) => {
-            let ed = document.querySelector('.editor[data-target="' + editor_bind + '"]');
+            let ed = document.querySelector('.markdown-pair[data-bind="' + editor_bind + '"] .editor');
             ed.value = file_data;
-            
+
             // Force display update for editor
             ed.dispatchEvent(new Event('keyup', {bubbles: true, cancelable: true}));
         });
