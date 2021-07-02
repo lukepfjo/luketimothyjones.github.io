@@ -147,7 +147,7 @@ function purify_html(html) {
 
 // ----
 document.addEventListener("DOMContentLoaded", function() {
-    window.markdown_worker = new Worker('js/worker.js');
+    window.markdown_worker = new Worker('js/worker.js?v=nocache');
     
     window.markdown_worker.onmessage = function(ev) {
         let bind_id = ev.data[0],
