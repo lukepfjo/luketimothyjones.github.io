@@ -147,14 +147,14 @@ function purify_html(html) {
 
 // ----
 document.addEventListener("DOMContentLoaded", function() {
-    window.markdown_worker = new Worker('js/worker.js?v=nocache');
+    window.markdown_worker = new Worker('js/worker.js');
     
     window.markdown_worker.onmessage = function(ev) {
         let bind_id = ev.data[0],
             html    = ev.data[1],
             md_div  = document.querySelector('div[data-bind="' + bind_id + '"] .display');
         
-        md_div.innerHTML = filterXSS(html);
+        md_div.innerHTML = html;
         PR.prettyPrint();
     };
     

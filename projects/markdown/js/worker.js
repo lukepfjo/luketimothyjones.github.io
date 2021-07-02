@@ -1,4 +1,5 @@
 importScripts('showdown.js');
+importScripts('filter-xss.js');
 
 var md_converter = new showdown.Converter();
 
@@ -25,6 +26,7 @@ onmessage = function(ev) {
         mdown   = ev.data[1];
     
     let html = md_converter.makeHtml(mdown);
+    html = filterXSS(html);
     postMessage([bind_id, prettify(html)]);
     return;
 };
