@@ -1,6 +1,8 @@
 importScripts('showdown.js');
 var md_converter = new showdown.Converter();
 
+md_converter.setFlavor('github');
+
 function prettify(source) {
     return source.replace(/(<pre[^>]*>)?[\n\s]?<code([^>]*)>/gi,
         function (match, pre, codeClass) {
