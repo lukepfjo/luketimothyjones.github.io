@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' smartlock.google.com apis.google.com *.apis.google.com *.googleapis.com accounts.google.com;">-->
+        <!--script-src 'self' smartlock.google.com apis.google.com; style-src 'unsafe-inline' 'self' smartlock.google.com; worker-src 'self'; connect-src *.googleapis.com apis.google.com;">-->
+        
+        <meta http-equiv="Content-Security-Policy" frame-src="'self' https://docs.google.com/">
+        <link rel="stylesheet" type="text/css" href="css/common.css"/>
+        
+        <link rel="stylesheet" type="text/css" href="css/sons-of-obsidian.css"/>
+        <link rel="stylesheet" type="text/css" href="css/tabbed.css"/>
+        <link rel="stylesheet" type="text/css" id="custom-theme" href="css/light-text.css">
+    </head>
+
+    <body>
+        <div id="top-nav">
+            <button id="add-editor">New Editor</button>
+            <button id="switch-theme">Switch Code Style</button>
+        </div>
+        
+        <!--
+        <div id="file-tabs">
+            <button class='file-tab' data-bind="1">File 1</button>
+        </div>
+        -->
+        
+        <div class="content">
+            <div class="markdown-pair" data-bind="1">
+                <div class="editor-controls">
+                    <button class="tab enabled" data-target="editor">Editor</button>
+                    <button class="tab" data-target="display">Display</button>
+                    <button class="tab open-file" data-target="open">Open</button>
+                </div>
+
+                <textarea class="editor enabled" contenteditable="true"></textarea>
+                <div class="display"></div>
+            </div>
+        </div>
+
+        <!-- JS time! -->
+        <script src="js/prettify.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/tabbed.js"></script>
+        <script src="js/editor.js"></script>
+        
+        <script src="https://apis.google.com/js/api.js"></script>
+        <script src="js/drivefs.js"></script>
+    </body>
+    
+</html>

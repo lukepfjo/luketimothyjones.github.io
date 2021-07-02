@@ -1,0 +1,19 @@
+.lit {
+    color: #b77fff;
+}
+
+.pun {
+    color: #ccc;
+}
+
+.kwd {
+    color: #6fafff;
+}
+
+.str {
+    color: #f0c089;
+}
+
+.com {
+    color: #359a35;
+}

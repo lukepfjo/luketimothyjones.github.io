@@ -1,0 +1,95 @@
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #282828 !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.content,
+.editor {
+    background-color: #282828;
+    color: #83bcfe;
+}
+
+.display,
+.editor {
+    padding: 4px;
+}
+
+.editor {
+    /*resize: none;*/
+    -moz-user-select: text;
+    -khtml-user-select: text;
+    -webkit-user-select: text;
+    -o-user-select: text;
+}
+
+.display {
+    border: 1px rgb(100, 100, 100) solid;
+    font-size: 13.33px;
+    font-family: "Consolas";
+    overflow-y: scroll;
+    overflow-x: scroll;
+    resize: auto;
+}
+
+.display p {
+    margin: 0;
+}
+
+.warning {
+    background-color: #ffccc;
+    position: absolute;
+    top: 0; left: 0;
+    height: 62vh;
+    width: 100vw;
+    padding-top: 38vh;
+    color: black;
+    font-size: 25px;
+    overflow-wrap: break-word;
+    text-align: center;
+    font-weight: bold;
+}
+
+pre.prettyprint {
+    border: 1px solid #444;
+    background: #222;
+    margin: 7px;
+}
+
+a,
+a:link,
+a:hover {
+    color: #83bcfe;
+}
+
+a:-webkit-any-link {
+    color: #83bcfe;
+}
+
+/* --------- */
+.prettyprint {
+}
+
+.linenums {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
+    color: #494949;
+    background: inherit;
+}
+
+code.plain,
+code.plain * {
+    color: #ccc;
+}
+
+pre.safe {
+    font-family: "Consolas" !important;
+}
+/* Nice soft purpleish-blue #6fafff */

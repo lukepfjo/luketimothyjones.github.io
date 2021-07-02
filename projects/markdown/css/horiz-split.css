@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+}
+
+body,
+.content,
+.entry {
+    background-color: #282828;
+    color: #83BCFE;
+}
+    
+.content {
+    display: flex;
+    margin: 10px;
+}
+
+.half {
+    width: calc(50vw - 15px);
+    height: calc(100vh - 20px);
+ }
+ 
+textarea {
+    resize: none;
+}
+
+.entry,
+.display {
+    padding: 5px;
+}
+
+.display {
+    height: calc(100vh - 32px);
+}
+
+.display {
+    border: 1px rgb(169, 169, 169) solid;
+    margin-left: 10px;
+    font-size: 13.33px;
+    font-family: "Consolas";
+}
+
+.display p {
+    margin: 0;
+}
+
+.prettyprint {
+    background: inherit;
+}
+
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
+    color: darkred;
+    background: inherit;
+}

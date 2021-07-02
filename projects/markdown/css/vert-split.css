@@ -1,0 +1,48 @@
+body {
+    height: 100vh;
+}
+
+.content,
+.markdown-pair {
+    display: flex;
+}
+
+.content {
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 7px;
+    height: 100vh;
+}
+
+.markdown-pair {
+    justify-content: space-evenly;
+    flex-direction: row;
+    height: calc(50% - 10px);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.markdown-pair:first-of-type,
+.markdown-pair:last-of-type {
+    height: calc(50% - 5px);
+}
+
+.markdown-pair:first-of-type {
+    margin-top: 0;
+}
+
+.markdown-pair:last-of-type {
+    margin-bottom: 0;
+}
+
+.half {
+    width: 50%;
+}
+
+.editor {
+    border: 1px rgb(100, 100, 100) solid;
+}
+
+.display {
+    margin-left: 10px;
+}
