@@ -36,8 +36,26 @@ body {
     resize: auto;
 }
 
+
+/* GitHub style */
+/*
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+*/
+
 .display p {
-    margin: 0;
+    /* Copy GitHub style */
+    margin-top: 0;
+    margin-bottom: 16px;
 }
 
 .warning {
