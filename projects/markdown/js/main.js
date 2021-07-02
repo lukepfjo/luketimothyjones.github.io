@@ -154,9 +154,10 @@ document.addEventListener("DOMContentLoaded", function() {
             html    = ev.data[1],
             md_div  = document.querySelector('div[data-bind="' + bind_id + '"] .display');
         
-        md_div.innerHTML = purify_html(html);
+        md_div.innerHTML = html;
+        //md_div.innerHTML = purify_html(html);
         PR.prettyPrint();
-        md_div.innerHTML = purify_html(md_div.innerHTML);
+        //md_div.innerHTML = purify_html(md_div.innerHTML);
     };
     
     // ----
