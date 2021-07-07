@@ -55,25 +55,24 @@ body {
             margin-bottom: 20px;
             font-size: 28pt;
         }
-
-        #name-box > h2 {
+        
+        /* Part of scrolling animation as well */
+        #name-box div span {
+            color: red;
             font-size: 20pt;
-            height: 32px;
+            vertical-align: top;
         }
 
         #position-roller {
             display: inline-block;
-            height: 30px;
-            line-height: 30px;
+            height: calc(20pt + 4px);
             overflow: hidden;
-            vertical-align: text-bottom;
-            transform: translateY(-1px);
+            vertical-align: top;
             }
             
             #position-roller span {
                 display: block;
-                height: 30px;
-                padding-bottom: 4px;
+                margin-bottom: 4px;
                 text-align: start;
                 animation-name: roller;
                 animation-duration: 10s;
@@ -191,22 +190,56 @@ footer {
 /* Animations */
 @keyframes roller {
     0%, 15% {
+        -moz-transform:translateY(0);
+        -webkit-transform:translateY(0);
         transform: translateY(0);
     }
     
     20%, 35% {
-        transform: translateY(-34px);
+        -moz-transform:translateY(-100%);
+        -webkit-transform:translateY(-100%);
+        transform: translateY(-100%);
     }
     
     40%, 55% {
-        transform: translateY(calc(-30px * 2 - 8px));
+        -moz-transform:translateY(-200%);
+        -webkit-transform:translateY(-200%);
+        transform: translateY(-200%);
     }
     
     60%, 75% {
-        transform: translateY(calc(-30px * 3 - 12px));
+        -moz-transform:translateY(-300%);
+        -webkit-transform:translateY(-300%);
+        transform: translateY(-300%);
     }
     
     80%, 95% {
-        transform: translateY(calc(-30px * 4 - 16px));
+        -moz-transform:translateY(-400%);
+        -webkit-transform:translateY(-400%);
+        transform: translateY(-400%);
     }
 }
+
+/*
+@keyframes roller {
+    0%, 15% {
+        transform: translateY(0);
+    }
+    
+    20%, 35% {
+        transform: translateY(calc(-20pt - 4px));
+    }
+    
+    40%, 55% {
+        transform: translateY(calc(-20pt * 2 - 8px));
+    }
+    
+    60%, 75% {
+        transform: translateY(calc(-20pt * 3 - 12px));
+    }
+    
+    80%, 95% {
+        transform: translateY(calc(-20pt * 4 - 16px));
+    }
+}
+*/
