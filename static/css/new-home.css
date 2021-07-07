@@ -1,0 +1,212 @@
+body {
+    margin: 0px;
+    background-color: #a8d0e6;
+    color: white;
+    font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+}
+
+#top {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 35px 0 10px 0;
+    background-color: #24305e;
+    }
+
+    #info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 287px;
+        height: 350px;
+        }
+        
+        #info > img {
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            border-radius: 100%;
+        }
+        
+        #links {
+            display: flex;
+            justify-content: space-evenly;
+            width: 287px;
+            }
+
+            #links img,
+            #links a {
+                height: 75px;
+                border-radius: 100%;
+                box-shadow: 0px 0px 8px #363636;
+}
+
+    #name-box {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+        text-align: center;
+        }
+        
+        #name-box > h1 {
+            height: 88px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            font-size: 28pt;
+        }
+
+        #name-box > h2 {
+            font-size: 20pt;
+            height: 32px;
+        }
+
+        #position-roller {
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            vertical-align: text-bottom;
+            transform: translateY(-1px);
+            }
+            
+            #position-roller span {
+                display: block;
+                height: 30px;
+                padding-bottom: 4px;
+                text-align: start;
+                animation-name: roller;
+                animation-duration: 10s;
+                transition-timing-function: ease-in;
+                animation-iteration-count: infinite;
+        }
+        
+        @media (min-width: 1025px) {
+            #name-box {
+                margin-left: 150px;
+            }
+        }
+
+        @media (min-width: 699px) {
+            #name-box {
+                margin-top: 0px;
+                padding-top: 50px;
+                }
+                
+                #name-box {
+                    text-align: start;
+            }
+        }
+        
+        @media (min-width: 400px) {
+            #name-box > h1 {
+                height: 44px;
+                margin-bottom: initial;
+                }
+
+                #name-box > h1 br {
+                    display: none;
+        }
+}
+        
+#portfolio {
+    margin-top: 50px;
+    margin-bottom: -12px;
+    }
+    
+    #portfolio > h2 {
+        text-align: center;
+    }
+    
+    #portfolio-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1500px;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+        .portfolio-item {
+            width: 325px;
+            height: 325px;
+            max-width: 100vw;
+            margin: 12px;
+            justify-self: center;
+            background-color: white;
+            }
+
+            .portfolio-item img {
+            
+}
+
+#get-in-touch {
+    margin: 75px 0;
+    }
+    
+    #get-in-touch button::before {
+        content: 'luke.pflibsen.jones (at) gmail.com';
+        display: none;
+        position: absolute;
+        text-align: center;
+        margin-left: -72px;
+        margin-top: -40px;
+        }
+        
+        #get-in-touch button.email-visible::before {
+            display: inline-block;
+    }
+
+    #get-in-touch button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        width: 200px;
+        height: 40px;
+        font-size: 12pt;
+        font-weight: 600;
+        font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        box-shadow: 0px 0px 8px #888;
+}
+
+footer {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    }
+    
+    footer > span {
+        
+}
+
+
+/* Helpers */
+.heart-emote {
+    color: red;
+}
+
+
+/* Animations */
+@keyframes roller {
+    0%, 15% {
+        transform: translateY(0);
+    }
+    
+    20%, 35% {
+        transform: translateY(-34px);
+    }
+    
+    40%, 55% {
+        transform: translateY(calc(-30px * 2 - 8px));
+    }
+    
+    60%, 75% {
+        transform: translateY(calc(-30px * 3 - 12px));
+    }
+    
+    80%, 95% {
+        transform: translateY(calc(-30px * 4 - 16px));
+    }
+}
