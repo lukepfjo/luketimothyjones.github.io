@@ -50,7 +50,6 @@ body {
         }
         
         #name-box > h1 {
-            height: 88px;
             margin-top: 8px;
             margin-bottom: 20px;
             font-size: 28pt;
@@ -104,12 +103,8 @@ body {
         }
         
         @media (min-width: 400px) {
-            #name-box > h1 {
-                height: 44px;
-                }
-
-                #name-box > h1 br {
-                    display: none;
+            #name-box > h1 br {
+                display: none;
         }
 }
         
