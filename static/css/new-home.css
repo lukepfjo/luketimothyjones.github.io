@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 35px 0 10px 0;
+    padding: 35px 0 45px 0;
     background-color: #24305e;
     }
 
@@ -57,8 +57,8 @@ body {
         }
         
         /* Part of scrolling animation as well */
-        #name-box div span {
-            color: red;
+        #name-box div span,
+        #name-box li {
             font-size: 20pt;
             vertical-align: top;
         }
@@ -66,18 +66,24 @@ body {
         #position-roller {
             display: inline-block;
             height: calc(20pt + 4px);
-            overflow: hidden;
-            vertical-align: top;
+            margin: 0;
+            padding-left: 0;
+            overflow: scroll;
+            list-style: none;
+            scroll-snap-type: y mandatory;
+            -ms-overflow-style: none;  /* Edge */
+            scrollbar-width: none;  /* Firefox */
             }
             
-            #position-roller span {
+            #position-roller::-webkit-scrollbar {
+                display: none;  /* Chrome, Edge, Safari */
+            }
+
+            #position-roller li {
                 display: block;
                 margin-bottom: 4px;
                 text-align: start;
-                animation-name: roller;
-                animation-duration: 10s;
-                transition-timing-function: ease-in;
-                animation-iteration-count: infinite;
+                scroll-snap-align: start;
         }
         
         @media (min-width: 1025px) {
@@ -86,7 +92,7 @@ body {
             }
         }
 
-        @media (min-width: 699px) {
+        @media (min-width: 716px) {
             #name-box {
                 margin-top: 0px;
                 padding-top: 50px;
@@ -100,7 +106,6 @@ body {
         @media (min-width: 400px) {
             #name-box > h1 {
                 height: 44px;
-                margin-bottom: initial;
                 }
 
                 #name-box > h1 br {
@@ -185,61 +190,3 @@ footer {
 .heart-emote {
     color: red;
 }
-
-
-/* Animations */
-@keyframes roller {
-    0%, 15% {
-        -moz-transform:translateY(0);
-        -webkit-transform:translateY(0);
-        transform: translateY(0);
-    }
-    
-    20%, 35% {
-        -moz-transform:translateY(-100%);
-        -webkit-transform:translateY(-100%);
-        transform: translateY(-100%);
-    }
-    
-    40%, 55% {
-        -moz-transform:translateY(-200%);
-        -webkit-transform:translateY(-200%);
-        transform: translateY(-200%);
-    }
-    
-    60%, 75% {
-        -moz-transform:translateY(-300%);
-        -webkit-transform:translateY(-300%);
-        transform: translateY(-300%);
-    }
-    
-    80%, 95% {
-        -moz-transform:translateY(-400%);
-        -webkit-transform:translateY(-400%);
-        transform: translateY(-400%);
-    }
-}
-
-/*
-@keyframes roller {
-    0%, 15% {
-        transform: translateY(0);
-    }
-    
-    20%, 35% {
-        transform: translateY(calc(-20pt - 4px));
-    }
-    
-    40%, 55% {
-        transform: translateY(calc(-20pt * 2 - 8px));
-    }
-    
-    60%, 75% {
-        transform: translateY(calc(-20pt * 3 - 12px));
-    }
-    
-    80%, 95% {
-        transform: translateY(calc(-20pt * 4 - 16px));
-    }
-}
-*/
