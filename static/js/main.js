@@ -12,12 +12,32 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#footer-year').innerText = new Date().getFullYear();
    
     // Handle email link / display
-    let get_in_touch_btn = document.querySelector('#get-in-touch button');
+    let get_in_touch_btn = document.querySelector('#get-in-touch button'),
+        mail_addr        = atob('bHVrZS50aW1vdGh5LmpvbmVzQGdtYWlsLmNvbQ==');
+
     get_in_touch_btn.addEventListener('click', () => {
-        window.open('mailto:luke.pflibsen.jones@gmail.com', '_top');
+        window.open('mailto:' + mail_addr + '?subject=Connecting from your website', '_top');
     });
+
     get_in_touch_btn.addEventListener('mouseenter', () => {
-        get_in_touch_btn.classList.toggle('email-visible');
+        if (!document.querySelector('#get-in-touch span')) {
+            let mail_elem = document.createElement('span'),
+                copy_elem = document.createElement('img');
+
+            copy_elem.src = '/static/img/copy.svg';
+            mail_elem.innerText = mail_addr;
+            mail_elem.appendChild(copy_elem);
+            document.querySelector('#get-in-touch').appendChild(mail_elem);
+
+            copy_elem.addEventListener('click', () => {
+                let source_elem = document.querySelector('#get-in-touch span');
+                navigator.clipboard.writeText(mail_addr).then(() => {
+                    copy_elem.src = '/static/img/check-mark.svg';
+                }, () => {
+                    // Copy failed -- fail silently?
+                });
+            });
+        }
     });
 
     // Handle animation of #position-roller on homepage

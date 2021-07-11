@@ -39,8 +39,16 @@ body {
             #links a {
                 height: 75px;
                 border-radius: 100%;
+            }
+            
+            #links img {
                 box-shadow: 0px 0px 8px #363636;
+                }
+                
+                #links img:hover {
+                    box-shadow: 0px 0px 8px #555;
 }
+            
 
     #name-box {
         display: flex;
@@ -143,19 +151,6 @@ body {
 #get-in-touch {
     margin: 75px 0;
     }
-    
-    #get-in-touch button::before {
-        content: 'luke.pflibsen.jones (at) gmail.com';
-        display: none;
-        position: absolute;
-        text-align: center;
-        margin-left: -72px;
-        margin-top: -40px;
-        }
-        
-        #get-in-touch button.email-visible::before {
-            display: inline-block;
-    }
 
     #get-in-touch button {
         display: block;
@@ -169,13 +164,40 @@ body {
         font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
         cursor: pointer;
         box-shadow: 0px 0px 8px #888;
+        }
+
+        #get-in-touch button:hover {
+            box-shadow: 0px 0px 8px #aaa;
+    }
+    
+    #get-in-touch > span {
+        display: block;
+        text-align: center;
+        margin-top: 12px;
+        }
+        
+        /* Copy icon */
+        #get-in-touch span img {
+            height: 10pt;
+            margin-left: 5px;
+            cursor: pointer;
+            filter: invert(100%);
+            user-select: none;
 }
 
 footer {
-    margin-left: 20px;
     margin-bottom: 15px;
     }
     
     footer > span {
+        display: block;
+        text-align: center;
+        }
         
+        @media (min-width: 716px) {
+            footer > span {
+                display: inline;
+                text-align: start;
+                margin-left: 20px;
+    }
 }
