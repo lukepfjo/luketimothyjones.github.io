@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 navigator.clipboard.writeText(mail_addr).then(() => {
                     copy_elem.src = '/static/img/check-mark.svg';
                 }, () => {
-                    // Copy failed -- fail silently?
+                    mail_elem.setAttribute('data-err-msg', "Sorry, you'll need to copy it manually in this browser.");
                 });
             });
         }

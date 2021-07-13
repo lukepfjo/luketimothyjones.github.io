@@ -158,12 +158,15 @@ body {
         margin-right: auto;
         border: none;
         width: 200px;
-        height: 40px;
-        font-size: 12pt;
+        height: 50px;
+        border-radius: 30px;
+        font-size: 13pt;
         font-weight: 600;
         font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
-        cursor: pointer;
+        color: white;
+        background-color: #374785;
         box-shadow: 0px 0px 8px #888;
+        cursor: pointer;
         }
 
         #get-in-touch button:hover {
@@ -183,6 +186,14 @@ body {
             cursor: pointer;
             filter: invert(100%);
             user-select: none;
+            }
+        
+        /* Error message if copy fails */
+        #get-in-touch span::after {
+            content: attr(data-err-msg);
+            display: block;
+            margin-top: 2px;
+            color: #ef0000;
 }
 
 footer {
