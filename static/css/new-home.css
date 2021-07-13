@@ -58,8 +58,7 @@ body {
         }
         
         #name-box > h1 {
-            margin-top: 8px;
-            margin-bottom: 20px;
+            margin: 8px 0 20px 0;
             font-size: 28pt;
         }
         
@@ -81,7 +80,7 @@ body {
             -ms-overflow-style: none;  /* Edge */
             scrollbar-width: none;  /* Firefox */
             }
-            
+
             #position-roller::-webkit-scrollbar {
                 display: none;  /* Chrome, Edge, Safari */
             }
@@ -117,8 +116,7 @@ body {
 }
         
 #portfolio {
-    margin-top: 50px;
-    margin-bottom: -12px;
+    margin: 50px 0 -12px 0;
     }
     
     #portfolio > h2 {
@@ -176,7 +174,7 @@ body {
     #get-in-touch > span {
         display: block;
         text-align: center;
-        margin-top: 12px;
+        margin: 12px 0 -31px 0;  /* -31px cancels page shift */
         }
         
         /* Copy icon */
@@ -186,8 +184,8 @@ body {
             cursor: pointer;
             filter: invert(100%);
             user-select: none;
-            }
-        
+        }
+
         /* Error message if copy fails */
         #get-in-touch span::after {
             content: attr(data-err-msg);
@@ -197,7 +195,7 @@ body {
 }
 
 footer {
-    margin-bottom: 15px;
+    margin: 100px 0 15px 0;
     }
     
     footer > span {
