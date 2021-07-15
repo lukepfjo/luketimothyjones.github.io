@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
    
     // Handle email link / display
     let get_in_touch_btn = document.querySelector('#get-in-touch button'),
-        mail_addr        = atob('bHVrZS50aW1vdGh5LmpvbmVzQGdtYWlsLmNvbQ==');
+        mail_addr        = atob('bHVrZS5wZmxpYnNlbi5qb25lc0BnbWFpbC5jb20=');
 
     get_in_touch_btn.addEventListener('click', () => {
         window.open('mailto:' + mail_addr + '?subject=Connecting from your website', '_top');
@@ -43,10 +43,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle animation of #position-roller on homepage
     (function() {
         const scroll_delay = 1600,
-              scroll_positions = [0, 20, 60, 100, 140];
+              normal_scroll_positions = [0, 20, 60, 100, 140],
+              apple_scroll_positions = [0, 36, 72, 108, 144];
 
         let scroll_box = document.querySelector('#position-roller'),
+            scroll_positions = normal_scroll_positions,
             target_pos = 1;
+
+        // Apple browsers report different scroll positions for some reason
+        if (/^((?!chrome|android).)*(safari)|(CriOS)/i.test(navigator.userAgent)) {
+            scroll_positions = apple_scroll_positions;
+        }
+
+        // Older browsers don't support elem.scroll() (namely Safari)
+        if (typeof scroll_box.scroll === 'undefined') {
+            function clumsy_scroll() {
+                let target = scroll_info['top'],
+                    scroll_time = 4,
+                    target_position = [target];
+
+                if (target_position < scroll_box.scrollTop) {
+                    scroll_box.scrollTop -= 1;
+                } else {
+                    scroll_box.scrollTop += 1;
+                }
+
+                setTimeout(function() { clumsy_scroll({top: target}); }, scroll_time);
+            }
+
+            scroll_box.scroll = clumsy_scroll;
+        }
 
         function do_scroll() {
             scroll_box.scroll({top: scroll_positions[target_pos], behavior: 'smooth'});
@@ -55,5 +81,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         setTimeout(do_scroll, scroll_delay);
+    }());
+    
+    (function() {
+        function apple_scroll(scroll_info) {
+            
+        }
     }());
 });

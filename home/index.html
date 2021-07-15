@@ -6,11 +6,12 @@
     <head>
         <meta charset="UTF-8">
 
+        <title>Luke Pflibsen-Jones</title>
         <meta property="og:site_name" content="Luke Pflibsen-Jones">
         <meta property="og:description" content="Luke Pflibsen-Jones's personal website" />
         <meta property="og:type" content="website">
         <meta name="keywords" content="luke,pflibsen-jones,pflibsen,jones,computer,science,programming,programmer,developer,software,full-stack,full stack,web,python,aboundant">
-        
+
         <link rel="icon" type="image/png" href="https://makecode.run/static/img/favicon.png">
         <meta name="twitter:name" property="og:image" content="https://makecode.run/static/img/profile.jpg" />
         <link property="image" href="https://makecode.run/static/img/profile.jpg" />
@@ -20,18 +21,16 @@
         <meta name="referrer" content="origin-when-crossorigin">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Luke Pflibsen-Jones</title>
-
-        <link rel="stylesheet" href="/static/css/new-home.css?v=1625708460">
+        <link rel="stylesheet" href="/static/css/new-home.css?v=1625708461">
         <script type="text/javascript" src="/static/js/smoothscroll.min.js?v=1625708459"></script>
-        <script type="text/javascript" src="/static/js/main.js?v=1625708460"></script>
+        <script type="text/javascript" src="/static/js/main.js?v=1625708461"></script>
 
         <link rel="prefetch" href="/static/img/copy.svg">
         <link rel="prefetch" href="/static/img/check-mark.svg">
     </head>
 
     <body>
-        <section id="top">
+        <section id="top" aria-label="About me and links">
             <div id="info">
                 <img src="/static/img/profile.jpg" alt="Picture of me!" width="200" height="200">
                 <div id="links" style="width: 287px">
@@ -59,16 +58,20 @@
             </div>
         </section>
 
-        <section id="portfolio">
-            <h2>Here are some things that I've made</h2>
+        <section id="portfolio" aria-label="Work portfolio">
+            <h2>Here are some things that I've done</h2>
 
             <div id="portfolio-items">
                 <div class="portfolio-item">
-                    <img src="/static/img/portfolio/.jpg" alt="">
+                    <img src="/static/img/portfolio/aboundant-logo.svg" alt="Aboundant logo">
+                    <p>Developed custom WordPress themes, plugins, and other web solutions to serve client needs.</p>
+                    <p>Technologies and services used:<br>PHP, Javascript, HTML, CSS3, MySQL, AWS S3, AWS Elastic Transcoder, CloudFront, Python</p>
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="/static/img/portfolio/.jpg" alt="">
+                    <img src="/static/img/portfolio/liquitrader.png" alt="LiquiTrader logo">
+                    <p>Developed the company's core product, automated cryptocurrency trading software. I was primarily responsible for the licensing/DRM system, build toolchain, client server, and data security.</p>
+                    <p>Technologies and services used:<br>C# (Azure Functions), Python, Cython, Javascript, Azure SQL, SQLite, PHP, React</p>
                 </div>
 
                 <div class="portfolio-item">
@@ -97,8 +100,8 @@
             </div>
         </section>
 
-        <section id="get-in-touch">
-            <button>Get in touch</button>
+        <section id="get-in-touch" aria-label="Contact me">
+            <button aria-label="Send me an email">Get in touch</button>
         </section>
 
         <footer>
