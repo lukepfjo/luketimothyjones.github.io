@@ -56,22 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Older browsers don't support elem.scroll() (namely Safari)
+        // Smoothscroll handles it, but the function still needs to exist.
         if (typeof scroll_box.scroll === 'undefined') {
-            function clumsy_scroll() {
-                let target = scroll_info['top'],
-                    scroll_time = 4,
-                    target_position = [target];
-
-                if (target_position < scroll_box.scrollTop) {
-                    scroll_box.scrollTop -= 1;
-                } else {
-                    scroll_box.scrollTop += 1;
-                }
-
-                setTimeout(function() { clumsy_scroll({top: target}); }, scroll_time);
-            }
-
-            scroll_box.scroll = clumsy_scroll;
+            scroll_box.scroll = function (_) { };
         }
 
         function do_scroll() {
