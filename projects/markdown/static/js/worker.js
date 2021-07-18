@@ -26,7 +26,18 @@ onmessage = function(ev) {
         mdown   = ev.data[1];
     
     let html = md_converter.makeHtml(mdown);
-    html = filterXSS(html);
+    html = filterXSS(html, {
+        onIgnoreTag: (tag, html, options) => {
+            // Parameters are the same with onTag
+            // If a string is returned, the tag would be replaced with the string
+            // If return nothing, the default measure would be taken (specifies using
+            // escape, as described below)
+          
+            if (tag === 'input' && html.indexOf('type="checkbox"') !== -1) {
+                // Check if nefarious shit is happening here
+            }
+        }
+    });
     postMessage([bind_id, prettify(html)]);
     return;
 };

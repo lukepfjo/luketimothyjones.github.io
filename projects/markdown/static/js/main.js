@@ -121,6 +121,41 @@ class KeybindHandler {
 };
 
 // ----
+function handle_file_drop(event) {
+    event.preventDefault();
+    
+    let editor = event.target;
+    
+    if (event.dataTransfer.items) {
+        for (var i = 0; i < event.dataTransfer.items.length; i++) {
+            // Ignore non-file items
+            if (event.dataTransfer.items[i].kind === 'file') {
+                let file = event.dataTransfer.items[i].getAsFile();
+                let fname = file.name;
+
+                file.text()
+                    .then((data) => {
+                        editor.innerHTML = data;
+                });
+                PR.prettyPrint();
+            }
+        }
+
+    } else {
+        for (var i = 0; i < event.dataTransfer.files.length; i++) {
+            let file = event.dataTransfer.files[i];
+            let fname = file.name;
+
+            file.text()
+                .then((data) => {
+                    editor.innerHTML = data;
+            });
+            PR.prettyPrint();
+        }
+    }
+}
+
+// ----
 function replaceAll(str, search, replacement, i=true) {
     let res = str.replace(new RegExp(search, 'g' + (i ? 'i' : '')), replacement);
     return res ? res : str;
@@ -139,15 +174,15 @@ function purify_html(html) {
         out = out.replace(matches[0], fixed);
     }
     
+    // Replace &lt;/p&gt;</p> with </p> at end of each p tag
     // out = replaceAll(out, '&lt;/p&gt;</p>', '</p>');
     
-    // Replace &lt;/p&gt;</p> with </p> at end of each p tag
     return out;
 }
 
 // ----
 document.addEventListener("DOMContentLoaded", function() {
-    window.markdown_worker = new Worker('js/worker.js');
+    window.markdown_worker = new Worker('static/js/worker.js');
     
     window.markdown_worker.onmessage = function(ev) {
         let bind_id = ev.data[0],
@@ -157,13 +192,14 @@ document.addEventListener("DOMContentLoaded", function() {
         md_div.innerHTML = html;
         PR.prettyPrint();
     };
-    
+
     // ----
     // Make sure handlers are never garbage collected
     window.keybind_handlers = [];
-    
+
     document.querySelectorAll('textarea.editor').forEach((iter_elem) => {
-       handler = new KeybindHandler(iter_elem);
-       window.keybind_handlers.push(handler);
+        handler = new KeybindHandler(iter_elem);
+        window.keybind_handlers.push(handler);
+        iter_elem.addEventListener('drop', handle_file_drop);
     });
 });
