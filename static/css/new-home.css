@@ -148,15 +148,25 @@ body {
             justify-self: center;
             margin: 12px;
             padding: 25px;
-            background-color: rgba(50,50,50,.25);
+            background-color: rgba(50,50,50,.15);
             }
 
-            .portfolio-item img {
-                width: 100%;
+            .portfolio-item .portfolio-img-container {
+                display: flex;
+                height: 100px;
+                justify-content: center;
+                }
+                
+                .portfolio-item .portfolio-img-container a {
+                    display: flex;
+                    }
+
+                    .portfolio-item .portfolio-img-container img {
+                        width: 100%;
             }
             
             .portfolio-item p {
-                
+                font-size: 11pt;
 }
 
 #get-in-touch {

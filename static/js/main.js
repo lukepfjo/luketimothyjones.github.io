@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
    
     // Handle email link / display
     let get_in_touch_btn = document.querySelector('#get-in-touch button'),
-        mail_addr        = atob('bHVrZS5wZmxpYnNlbi5qb25lc0BnbWFpbC5jb20=');
+        mail_addr        = atob('bHVrZS1wakBtYWtlY29kZS5ydW4=');
 
     get_in_touch_btn.addEventListener('click', () => {
         window.open('mailto:' + mail_addr + '?subject=Connecting from your website', '_top');
