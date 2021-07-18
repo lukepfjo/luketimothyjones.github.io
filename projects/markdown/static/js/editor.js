@@ -3,6 +3,7 @@ const EDITOR_TEMPLATE = ({bind}) => `
         <div class="editor-controls">
             <button class="tab enabled" data-target="editor">Editor</button>
             <button class="tab" data-target="display">Display</button>
+            <span class="file-name"></span>
             <button class="tab open-file" data-target="open">Open</button>
         </div>
         

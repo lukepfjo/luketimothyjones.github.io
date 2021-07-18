@@ -131,26 +131,36 @@ function handle_file_drop(event) {
             // Ignore non-file items
             if (event.dataTransfer.items[i].kind === 'file') {
                 let file = event.dataTransfer.items[i].getAsFile();
-                let fname = file.name;
 
                 file.text()
                     .then((data) => {
                         editor.innerHTML = data;
-                });
-                PR.prettyPrint();
+                        editor.parentElement.querySelector('.file-name').innerText = file.name;
+                    })
+                    .then(PR.prettyPrint
+                    /*() => {
+                        if (file.name.indexOf('.md') !== -1) {
+                            ();
+                    }*/
+                ); 
             }
         }
 
     } else {
         for (var i = 0; i < event.dataTransfer.files.length; i++) {
             let file = event.dataTransfer.files[i];
-            let fname = file.name;
 
             file.text()
                 .then((data) => {
                     editor.innerHTML = data;
-            });
-            PR.prettyPrint();
+                    editor.parentElement.querySelector('.file-name').innerText = file.name;
+                })
+                .then(PR.prettyPrint
+                /*() => {
+                    if (file.name.indexOf('.md') !== -1) {
+                        PR.prettyPrint();
+                }*/
+            ); 
         }
     }
 }
@@ -181,7 +191,7 @@ function purify_html(html) {
 }
 
 // ----
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     window.markdown_worker = new Worker('static/js/worker.js');
     
     window.markdown_worker.onmessage = function(ev) {
