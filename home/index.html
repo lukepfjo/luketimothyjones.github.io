@@ -33,7 +33,9 @@
     <body>
         <section id="top" aria-label="About me and links">
             <div id="info">
-                <img src="/static/img/profile.jpg" alt="Picture of me!" width="200" height="200">
+                <img src="/static/img/profile.jpg" alt="Picture of me!" width="200" height="200"
+                     srcset="/static/img/profile-big.jpg 500w, /static/img/profile-small.jpg 300w"
+                     sizes="(max-width: 500px) 300px, 500px">
                 <div id="links" style="width: 287px">
                     <a href="https://github.com/luketimothyjones">
                         <img src="/static/img/github.svg" alt="My GitHub" width="75" height="75">
