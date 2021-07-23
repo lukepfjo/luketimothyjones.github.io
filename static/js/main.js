@@ -1,12 +1,11 @@
 'use strict';
 
-/* Block until Roboto is loaded in */
-function load_roboto() {
-    const font = new FontFace('Roboto Condensed', 'url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2)');
+/* Block until Inter is loaded in */
+(function() {
+    const font = new FontFace('Inter', 'url(https://fonts.gstatic.com/s/inter/v3/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfAZ9hiA.woff2)');
     font.load();
     document.fonts.add(font);
-} load_roboto();
-
+}());
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#footer-year').innerText = new Date().getFullYear();
@@ -18,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     get_in_touch_btn.addEventListener('click', () => {
         window.open('mailto:' + mail_addr + '?subject=Connecting from your website', '_top');
     });
-
-    get_in_touch_btn.addEventListener('mouseenter', () => {
+    
+    function show_mail() {
         if (!document.querySelector('#get-in-touch span')) {
             let mail_elem = document.createElement('span'),
                 copy_elem = document.createElement('img');
@@ -38,13 +37,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         }
-    });
+    }
+
+    get_in_touch_btn.addEventListener('mouseenter', show_mail);
+    get_in_touch_btn.addEventListener('focus', show_mail);
 
     // Handle animation of #position-roller on homepage
     (function() {
         const scroll_delay = 1600,
-              normal_scroll_positions = [0, 20, 60, 100, 140],
-              apple_scroll_positions = [0, 36, 72, 108, 144];
+              normal_scroll_positions = [0, 20, 60, 100, 144], /* 140 */
+              apple_scroll_positions = [0, 37, 74, 111, 148];
 
         let scroll_box = document.querySelector('#position-roller'),
             scroll_positions = normal_scroll_positions,
@@ -68,11 +70,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         setTimeout(do_scroll, scroll_delay);
-    }());
-    
-    (function() {
-        function apple_scroll(scroll_info) {
-            
-        }
     }());
 });

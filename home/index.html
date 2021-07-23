@@ -4,7 +4,9 @@
 
 <html lang="en">
     <head>
+        <!--
         <meta http-equiv="Content-Security-Policy" content="default-src https:; style-src 'unsafe-inline' https:; object-src 'none'">
+        -->
         <meta charset="UTF-8">
 
         <title>Luke Pflibsen-Jones</title>
@@ -22,9 +24,9 @@
         <meta name="referrer" content="origin-when-crossorigin">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="/static/css/new-home.css?v=1625708464">
+        <link rel="stylesheet" href="/static/css/new-home.css?v=1625708466">
         <script type="text/javascript" src="/static/js/smoothscroll.min.js?v=1625708459"></script>
-        <script type="text/javascript" src="/static/js/main.js?v=1625708463"></script>
+        <script type="text/javascript" src="/static/js/main.js?v=1625708466"></script>
 
         <link rel="prefetch" href="/static/img/copy.svg">
         <link rel="prefetch" href="/static/img/check-mark.svg">
@@ -36,7 +38,7 @@
                 <img src="/static/img/profile.jpg" alt="Picture of me!" width="200" height="200"
                      srcset="/static/img/profile-big.jpg 500w, /static/img/profile-small.jpg 300w"
                      sizes="(max-width: 500px) 300px, 500px">
-                <div id="links" style="width: 287px">
+                <div id="links" style="width: 200px">
                     <a href="https://github.com/luketimothyjones">
                         <img src="/static/img/github.svg" alt="My GitHub" width="75" height="75">
                     </a>
@@ -46,7 +48,7 @@
                 </div>
             </div>
 
-            <div id="name-box" style="width: 412px">
+            <div id="name-box" style="width: 472px">
                 <h1>Hi, I'm <br>Luke Pflibsen-Jones</h1>
                 <div>
                     <span>I'm a </span>
@@ -86,27 +88,62 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="/static/img/portfolio/.jpg" alt="">
+                    <div class="portfolio-img-container">
+                        <a href="https://github.com/luketimothyjones/s3-site-size">
+                            <img src="/static/img/portfolio/s3-bucket.png" alt="Bucket containing objects" height="100" width="100">
+                        </a>
+                    </div>
+                    <p>Wrote a WordPress plugin that gives WordPress access to site filesystems stored on AWS S3 (namely for WPEngine's LargeFS system)</p>
+                    <p>Technologies and services used:<br>PHP, WordPress, AWS S3, WPEngine LargeFS</p>
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="/static/img/portfolio/.jpg" alt="">
+                    <div class="portfolio-img-container">
+                        <a href="">
+                            <img src="/static/img/portfolio/" alt="" height="100" width="100">
+                        </a>
+                    </div>
+                    <p></p>
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="/static/img/portfolio/.jpg" alt="">
+                    <div class="portfolio-img-container">
+                        <a href="">
+                            <img src="/static/img/portfolio/" alt="" height="100" width="100">
+                        </a>
+                    </div>
+                    <p></p>
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="/static/img/portfolio/.jpg" alt="">
+                    <div class="portfolio-img-container">
+                        <a href="https://github.com/luketimothyjones/transcend">
+                            <img src="/static/img/portfolio/transcend.jpg" alt="Lightbulb color selection Unity game" height="100" width="206">
+                        </a>
+                    </div>
+                    <p>Created a system to synchronize arbitrary real-world IoT devices with virtual objects in games made with the Unity game engine</p>
+                    <p>Technologies and services used:<br>Python, MicroPython, C#, RESTFul API, ESP8266 microcontroller, Unity, git + GitHub</p>
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="/static/img/portfolio/.jpg" alt="">
+                    <div class="portfolio-img-container">
+                        <a href="https://github.com/friggog/tree-gen">
+                            <img src="/static/img/portfolio/treegen.jpg" alt="Several computer-generated trees" height="100" width="273">
+                        </a>
+                    </div>
+                    <p>OSS contribution - TreeGen</p>
+                    <p>Contributed many hours to performance, stability, and user-experience improvements to an open-source tree generation addon for Blender</p>
+                    <p>Technologies and services used:<br>Python, Blender API, git + GitHub</p>
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="/static/img/portfolio/.jpg" alt="">
+                    <div class="portfolio-img-container">
+                        <a href="https://hackerone.com/lukepj">
+                            <img src="/static/img/portfolio/lock.svg" alt="Lock icon" height="100" width="100">
+                        </a>
+                    </div>
+                    <p>Rewarded $1,000 by Valve Corporation for responsibly disclosing a security vulnerability in a core Steam executable</p>
+                    <p>Technologies and services used:<br>Python, PowerShell, HackerOne</p>
                 </div>
             </div>
         </section>
