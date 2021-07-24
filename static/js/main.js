@@ -45,17 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle animation of #position-roller on homepage
     (function() {
         const scroll_delay = 1600,
-              normal_scroll_positions = [0, 20, 60, 100, 144], /* 140 */
-              apple_scroll_positions = [0, 37, 74, 111, 148];
+              scroll_positions = [0, 38, 76, 114, 152];
 
         let scroll_box = document.querySelector('#position-roller'),
-            scroll_positions = normal_scroll_positions,
             target_pos = 1;
-
-        // Apple browsers report different scroll positions for some reason
-        if (/^((?!chrome|android).)*(safari)|(CriOS)/i.test(navigator.userAgent)) {
-            scroll_positions = apple_scroll_positions;
-        }
 
         // Older browsers don't support elem.scroll() (namely Safari)
         // Smoothscroll handles it, but the function still needs to exist.
@@ -65,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function do_scroll() {
             scroll_box.scroll({top: scroll_positions[target_pos], behavior: 'smooth'});
-            target_pos = target_pos > 3 ? 0 : target_pos + 1;
+            target_pos = target_pos >= 4 ? 0 : target_pos + 1;
             setTimeout(do_scroll, scroll_delay);
         }
 
