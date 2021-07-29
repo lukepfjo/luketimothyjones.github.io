@@ -35,9 +35,12 @@
     <body>
         <section id="top" aria-label="About me and links">
             <div id="info">
-                <img src="/static/img/profile.jpg" alt="Picture of me!" width="200" height="200"
-                     srcset="/static/img/profile-big.jpg 500w, /static/img/profile-small.jpg 300w"
-                     sizes="(max-width: 500px) 300px, 500px">
+                <picture>
+                    <source srcset="/static/img/profile.webp" type="image/webp">
+                    <source srcset="/static/img/profile.jpg" type="image/jpeg"> 
+                    <img src="/static/img/profile.jpg" alt="Picture of me!" width="200" height="200">
+                </picture>
+
                 <div id="links" style="width: 200px">
                     <a href="https://github.com/luketimothyjones">
                         <img src="/static/img/github.svg" alt="My GitHub" width="75" height="75">
@@ -73,8 +76,8 @@
                             <img src="/static/img/portfolio/aboundant-logo.svg" alt="Aboundant logo" height="100" width="275">
                         </a>
                     </div>
-                    <p>Developed custom WordPress themes, plugins, and other web solutions to serve client needs. Optimized client media delivery. Lead development on a plugin that will be offered as a future product.</p>
-                    <p>Technologies and services used:<br>PHP, Javascript, HTML, CSS, MySQL, AWS S3, AWS Elastic Transcoder, CloudFront, Python</p>
+                    <p>Developed custom WordPress themes, plugins, and other web solutions to serve client needs. Lead development on a plugin that will be offered as a future product.</p>
+                    <p>Technologies and services used:<br>PHP, Javascript, HTML, CSS, MySQL, AWS S3, CloudFront, Python</p>
                 </div>
 
                 <div class="portfolio-item">
@@ -125,7 +128,7 @@
                         </a>
                     </div>
                     <p>Implemented designs for product pages in the user area. Optimized delivery of videos and podcasts by reencoding their full library into modern formats and migrating the content to a CDN.</p>
-                    <p>Technologies and services used:<br>HTML, CSS, WordPress, Python, AWS-CLI, AWS S3, AWS Elastic Transcoder</p>
+                    <p>Technologies and services used:<br>HTML, CSS, WordPress, Python, AWS-CLI, AWS S3, AWS Elastic Transcoder, CloudFront</p>
                 </div>
 
                 <div class="portfolio-item">
