@@ -7,13 +7,14 @@
     --dark-background: #24305e;
     --light-text-color: white;
     --dark-text-color: #24305e;
+    --portfolio-card-color: rgba(50,50,50, .15);
 }
 
 body {
     margin: 0px;
     background-color: var(--light-background);
     color: var(--light-text-color);
-    font-family: Inter, Arial, Helvetica, sans-serif; /* 'Roboto Condensed' */
+    font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
 #top {
@@ -165,7 +166,7 @@ body {
             justify-self: center;
             margin: 12px;
             padding: 20px;
-            background-color: rgba(50,50,50,.15);
+            background-color: var(--portfolio-card-color);
             }
 
             .portfolio-item .portfolio-img-container {
@@ -178,6 +179,10 @@ body {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    }
+
+                    .portfolio-item .portfolio-img-container a img {
+                        color: var(--light-text-color);
             }
 
             .portfolio-item p,
