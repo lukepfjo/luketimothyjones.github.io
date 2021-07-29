@@ -7,9 +7,9 @@
     document.fonts.add(font);
 }());
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#footer-year').innerText = new Date().getFullYear();
-   
+
     // Handle email link / display
     let get_in_touch_btn = document.querySelector('#get-in-touch button'),
         mail_addr        = atob('bHVrZUBtYWtlY29kZS5ydW4=');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     get_in_touch_btn.addEventListener('click', () => {
         window.open('mailto:' + mail_addr + '?subject=Connecting from your website', '_top');
     });
-    
+
     function show_mail() {
         if (!document.querySelector('#get-in-touch span')) {
             let mail_elem = document.createElement('span'),
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Older browsers don't support elem.scroll() (namely Safari)
         // Smoothscroll handles it, but the function still needs to exist.
         if (typeof scroll_box.scroll === 'undefined') {
-            scroll_box.scroll = function (_) { };
+            scroll_box.scroll = (_) => { };
         }
 
         function do_scroll() {
