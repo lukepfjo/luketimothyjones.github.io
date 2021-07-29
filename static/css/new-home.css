@@ -176,6 +176,8 @@ body {
 
                 .portfolio-item .portfolio-img-container a {
                     display: flex;
+                    flex-direction: column;
+                    justify-content: center;
             }
 
             .portfolio-item p,
