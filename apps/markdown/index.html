@@ -7,48 +7,48 @@
         <!--script-src 'self' smartlock.google.com apis.google.com; style-src 'unsafe-inline' 'self' smartlock.google.com; worker-src 'self'; connect-src *.googleapis.com apis.google.com;">-->
         
         <meta http-equiv="Content-Security-Policy" frame-src="'self' https://docs.google.com/">
-        <link rel="stylesheet" type="text/css" href="static/css/common.css"/>
         
-        <link rel="stylesheet" type="text/css" href="static/css/sons-of-obsidian.css"/>
-        <link rel="stylesheet" type="text/css" href="static/css/tabbed.css"/>
-        <link rel="stylesheet" type="text/css" id="custom-theme" href="static/css/light-text.css">
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
     </head>
 
     <body>
         <div id="top-nav">
+            <div id="file-tabs">
+                <button class="file-tab selected" data-bind="0">File 1</button>
+            </div>
             <button id="add-editor">New Editor</button>
             <button id="switch-theme">Switch Code Style</button>
         </div>
-        
-        <!--
-        <div id="file-tabs">
-            <button class='file-tab' data-bind="1">File 1</button>
-        </div>
-        -->
-        
+
         <div class="content">
-            <div class="markdown-pair" data-bind="1">
+            <div class="markdown-pair enabled" data-bind="0">
                 <div class="editor-controls">
-                    <button class="tab enabled" data-target="editor">Editor</button>
-                    <button class="tab" data-target="display">Display</button>
                     <span class="file-name"></span>
-                    <button class="tab open-file" data-target="open">Open</button>
+                    <!-- <button class="tab open-file">Open</button> -->
+                    <button class="tab save-file">Save</button>
                 </div>
 
-                <textarea class="editor enabled" contenteditable="true"></textarea>
-                <div class="display"></div>
+                <div class="split-screen-container">
+                    <textarea class="editor" contenteditable="true" placeholder="Type some Markdown or drop a file here"></textarea>
+                    <div class="display"></div>
+                </div>
             </div>
         </div>
 
-        <!-- JS time! -->
+        <link rel="stylesheet" type="text/css" href="static/css/sons-of-obsidian.css">
+        <link rel="stylesheet" type="text/css" id="custom-theme" href="static/css/light-text.css">
+
         <script src="static/js/prettify.js"></script>
         <script src="static/js/filter-xss.js"></script>
         <script src="static/js/main.js"></script>
-        <script src="static/js/tabbed.js"></script>
         <script src="static/js/editor.js"></script>
-        
+
+        <!--
         <script src="https://apis.google.com/js/api.js"></script>
         <script src="static/js/drivefs.js"></script>
+        -->
+
+        <!-- Google API stuff -->
     </body>
     
 </html>
