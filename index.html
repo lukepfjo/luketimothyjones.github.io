@@ -1,94 +1,190 @@
 <!DOCTYPE html>
 
-<html>
+<!-- Hey there! Thanks for taking an interest in my site! It's plain CSS, JS, and HTML, hand-written with love. -->
+
+<html lang="en">
     <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src https:; style-src 'unsafe-inline' https:; object-src 'none'">
         <meta charset="UTF-8">
-        
-        <meta property="og:type" content="website">
-        <meta name="robots" content="index, follow">
-        
-        <meta name="referrer" content="origin-when-crossorigin">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#0f213e">
-        
-        <meta property="og:site_name" content="Luke Pflibsen-Jones">
-        
+
         <title>Luke Pflibsen-Jones</title>
-        
-        <style>
-            /**
-             * The main stylehseet has the site's font inlined as base64, causing it to frequently load after
-             * the DOM, resulting in elements shifting around and other nastiness. This ensures that the rules
-             * that prevent the nastiness are loaded before the DOM is.
-            **/
+        <meta property="og:site_name" content="Luke Pflibsen-Jones">
+        <meta property="og:description" content="Luke Pflibsen-Jones's personal website" />
+        <meta property="og:type" content="website">
+        <meta name="keywords" content="luke,pflibsen-jones,pflibsen,jones,computer,science,programming,programmer,developer,software,full-stack,full stack,web,python,aboundant">
 
-            html,
-            body,
-            #page-container {
-                min-width: 100vw;
-                min-height: 100vh;
-                margin: 0;
-                padding: 0;
-            }
-            
-            body {
-                background-color: #6f98dd;  /* Fall-back for browsers that don't support radial gradients */
-                background: radial-gradient(ellipse at center, #6f98dd 0%, #0f213e 100%);
-            }
-            
-            @keyframes fade-in-animation {
-                0% { opacity: 0; }
-                100% { opacity: 1; }
-            }
+        <link rel="icon" type="image/png" href="https://makecode.run/static/img/favicon.png">
+        <meta name="twitter:name" property="og:image" content="https://makecode.run/static/img/profile.jpg" />
+        <link property="image" href="https://makecode.run/static/img/profile.jpg" />
+        <meta name="theme-color" content="#24305e">
 
-            #content-container {
-                min-height: 276px;
-                animation: fade-in-animation .6s ease-in;
-                }
-                
-                #content-container h1 {
-                    min-height: 44px;
-                }
-                
-                #content-container h2 {
-                    min-height: 33px;
-                }
-                
-                #content-container a,
-                #content-container svg {
-                    height: 150px;
-                    width: 150px;
-            }
-            
-            @media (max-width: 400px) {
-                body {
-                    background-color: #6f98dd;  /* Fall-back for browsers that don't support radial gradients */
-                    background: radial-gradient(ellipse at center, #6f98dd 20%, #0f213e 100%);
-                }
-            }
-        </style>
+        <meta name="robots" content="index, follow">
+        <meta name="referrer" content="origin-when-crossorigin">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="/static/css/new-home.css?v=1625708470">
+        <script type="text/javascript" src="/static/js/smoothscroll.min.js?v=1625708459"></script>
+        <script type="text/javascript" src="/static/js/main.js?v=1625708469"></script>
+
+        <link rel="prefetch" href="/static/img/copy.svg">
+        <link rel="prefetch" href="/static/img/check-mark.svg">
     </head>
 
     <body>
-        <div id="page-container">
-            <div class="horizontal-centered">
-                <div id="content-container">
-                    <h1>Luke Pflibsen-Jones</h1>
-                    <h2>Software Engineer</h2>
+        <section id="top" aria-label="About me and links">
+            <div id="info">
+                <picture>
+                    <source srcset="/static/img/profile.webp" type="image/webp">
+                    <source srcset="/static/img/profile.jpg" type="image/jpeg"> 
+                    <img src="/static/img/profile.jpg" alt="Picture of me!" width="200" height="200">
+                </picture>
 
-                    <a href="https://github.com/luketimothyjones/">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.58 31.77">
-                            <defs><style>.a{fill:#181616;fill-rule:evenodd;}</style></defs>
-                            <title>GitHub</title>
-                            <path class="a" d="M24.61,8.44a16.29,16.29,0,0,0-5.15,31.75,0.82,0.82,0,0,0,1.11-.79c0-.39,0-1.41,0-2.77-4.53,1-5.49-2.18-5.49-2.18a4.31,4.31,0,0,0-1.81-2.38c-1.48-1,.11-1,0.11-1a3.42,3.42,0,0,1,2.5,1.68,3.47,3.47,0,0,0,4.74,1.35,3.48,3.48,0,0,1,1-2.18c-3.62-.41-7.42-1.81-7.42-8.05a6.3,6.3,0,0,1,1.68-4.37,5.86,5.86,0,0,1,.16-4.31s1.37-.44,4.48,1.67a15.44,15.44,0,0,1,8.16,0c3.11-2.11,4.48-1.67,4.48-1.67a5.85,5.85,0,0,1,.16,4.31A6.29,6.29,0,0,1,35,23.88c0,6.26-3.81,7.63-7.44,8a3.89,3.89,0,0,1,1.11,3c0,2.18,0,3.93,0,4.47a0.82,0.82,0,0,0,1.12.78A16.29,16.29,0,0,0,24.61,8.44Z" transform="translate(-8.32 -8.44)"/>
-                        </svg>
+                <div id="links" style="width: 200px">
+                    <a href="https://github.com/luketimothyjones">
+                        <img src="/static/img/github.svg" alt="My GitHub" width="75" height="75">
+                    </a>
+                    <a href="https://www.linkedin.com/in/luke-pflibsen-jones/">
+                        <img src="/static/img/linkedin.svg" alt="My LinkedIn" width="75" height="75">
                     </a>
                 </div>
             </div>
-        </div>
+
+            <div id="name-box" style="width: 494px">
+                <h1>Hi, I'm <br>Luke Pflibsen-Jones</h1>
+                <div>
+                    <span>I'm a </span>
+                    <ul id="position-roller">
+                        <li>Full-Stack Developer</li>
+                        <li>Python Enthusiast</li>
+                        <li>Security Advocate</li>
+                        <li>Hiker</li>
+                        <li>Maker</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" aria-label="Work portfolio">
+            <h2>Here are some things that I've done</h2>
+
+            <div id="portfolio-items">
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <a href="https://aboundant.org/">
+                            <picture>
+                                <source srcset="/static/img/portfolio/aboundant-logo.webp" type="image/webp">
+                                <source srcset="/static/img/portfolio/aboundant-logo.png" type="image/png"> 
+                                <img src="/static/img/portfolio/aboundant-logo.png" alt="Aboundant logo" height="35" width="275">
+                            </picture>
+                        </a>
+                    </div>
+                    <p>Developed custom WordPress themes, plugins, and other web solutions to serve client needs. Lead development on a plugin that will be offered as a future product.</p>
+                    <p>Technologies and services used:<br>PHP, Javascript, HTML, CSS, MySQL, AWS S3, CloudFront, Python</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <a href="https://github.com/luketimothyjones/liquidtrader-cloud">
+                            <picture>
+                                <source srcset="/static/img/portfolio/liquitrader.webp" type="image/webp">
+                                <source srcset="/static/img/portfolio/liquitrader.png" type="image/png"> 
+                                <img src="/static/img/portfolio/liquitrader.png" alt="LiquiTrader logo" height="100" width="275">
+                            </picture>
+                        </a>
+                    </div>
+                    <p>Developed the company's core product, automated cryptocurrency trading software. I was primarily responsible for the licensing/DRM system, databases, build toolchain, GUI &amp; API server, performance, and data security.</p>
+                    <p>Technologies and services used:<br>C# (Azure Functions), Python, Cython, Javascript, Azure SQL, SQLite, PHP, React</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <a href="https://github.com/luketimothyjones/s3-site-size">
+                            <picture>
+                                <source srcset="/static/img/portfolio/s3-bucket.webp" type="image/webp">
+                                <source srcset="/static/img/portfolio/s3-bucket.png" type="image/png"> 
+                                <img src="/static/img/portfolio/s3-bucket.png" alt="Bucket containing objects" height="100" width="100">
+                            </picture>
+                        </a>
+                    </div>
+                    <p>Wrote a WordPress plugin that gives WordPress access to site filesystems stored on AWS S3 (namely for WPEngine's LargeFS system)</p>
+                    <p>Technologies and services used:<br>PHP, WordPress, AWS S3, WPEngine LargeFS</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <a href="https://github.com/friggog/tree-gen">
+                            <picture>
+                                <source srcset="/static/img/portfolio/treegen.webp" type="image/webp">
+                                <source srcset="/static/img/portfolio/treegen.jpg" type="image/jpeg"> 
+                                <img src="/static/img/portfolio/treegen.jpg" alt="Several computer-generated trees" height="100" width="273">
+                            </picture>
+                        </a>
+                    </div>
+                    <p>Open-source contribution - TreeGen</p>
+                    <p>Contributed many hours to improving the performance, stability, and user-experience of an open-source tree generation addon for Blender</p>
+                    <p>Technologies and services used:<br>Python, Blender API, git + GitHub</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <a href="https://www.darkwoodbrew.org/">
+                            <picture>
+                                <source srcset="/static/img/portfolio/darkwoodbrew.webp" type="image/webp">
+                                <source srcset="/static/img/portfolio/darkwoodbrew.png" type="image/png"> 
+                                <img src="/static/img/portfolio/darkwoodbrew.png" alt="Darkwood Brew logo" height="100" width="190">
+                            </picture>
+                        </a>
+                    </div>
+                    <p>Implemented designs for product pages in the user area. Optimized delivery of videos and podcasts by reencoding their full library into modern formats and migrating the content to a CDN.</p>
+                    <p>Technologies and services used:<br>HTML, CSS, WordPress, Python, AWS-CLI, AWS S3, AWS Elastic Transcoder, CloudFront</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <a href="/apps/markdown/">
+                            <picture>
+                                <source srcset="/static/img/portfolio/markdown-editor.webp" type="image/webp">
+                                <source srcset="/static/img/portfolio/markdown-editor.png" type="image/png"> 
+                                <img src="/static/img/portfolio/markdown-editor.png" alt="Markdown editor logo" height="100" width="100">
+                            </picture>
+                        </a>
+                    </div>
+                    <p>Wrote an in-browser live-preview Markdown editor with support for code highlighting.</p>
+                    <p>Technologies and services used:<br>HTML, CSS, Javascript, Google Drive API (Drive support is presently disabled)</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <a href="https://github.com/luketimothyjones/transcend">
+                            <picture>
+                                <source srcset="/static/img/portfolio/transcend.webp" type="image/webp">
+                                <source srcset="/static/img/portfolio/transcend.jpg" type="image/jpeg"> 
+                                <img src="/static/img/portfolio/transcend.jpg" alt="Lightbulb color selection Unity game" height="100" width="206">
+                            </picture>
+                        </a>
+                    </div>
+                    <p>Created a system to synchronize arbitrary real-world IoT devices with virtual objects in games made with the Unity game engine</p>
+                    <p>Technologies and services used:<br>Python, MicroPython, C#, RESTFul API, ESP8266 microcontroller, Unity, git + GitHub</p>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <a href="https://hackerone.com/lukepj">
+                            <img src="/static/img/portfolio/lock.svg" alt="Lock icon" height="100" width="100">
+                        </a>
+                    </div>
+                    <p>Rewarded $1,000 by Valve Corporation for responsibly disclosing a security vulnerability in a core Steam executable</p>
+                    <p>Technologies and services used:<br>Python, PowerShell, HackerOne</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="get-in-touch" aria-label="Contact me">
+            <button aria-label="Send me an email">Get in touch</button>
+        </section>
+
+        <footer>
+            <span>Made with <img src="/static/img/heart.svg" width="13" height="12"> by Luke Pflibsen-Jones - <span id="footer-year">2021</span></span>
+        </footer>
     </body>
-                    
 </html>
