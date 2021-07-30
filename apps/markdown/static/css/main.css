@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --scrollbar-thumb-color: #a9a9a9;
+    --scrollbar-track-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #282828;
+}
+
+#top-nav {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    background-color: #333;
+    }
+
+    #file-tabs {
+        margin-right: auto;
+    }
+
+    #top-nav button {
+        height: 30px;
+        font-size: 12px;
+        padding: 4px 8px;
+        vertical-align: middle;
+}
+
+.content,
+.editor {
+    background-color: #282828;
+    color: #83bcfe;
+}
+
+.markdown-pair {
+    display: none;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    margin: 3px 10px;
+    }
+
+    .markdown-pair.enabled {
+        display: flex;
+    }
+
+    .split-screen-container {
+        display: flex;
+    }
+
+    .editor {
+        margin-right: 2px;
+        resize: none;
+        border: 1px rgb(169, 169, 169) solid;
+
+        -moz-user-select: text;
+        -khtml-user-select: text;
+        -webkit-user-select: text;
+        -o-user-select: text;
+        user-select: text;
+        }
+
+        .editor-controls {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            width: 100%;
+            background-color: rgba(255, 255, 255, .05);
+            }
+        
+            .editor-controls .tab {
+                border-bottom: none;
+                }
+        
+                .editor-controls .tab.enabled {
+                    background-color: #bbb;
+            }
+        
+            .editor-controls .file-name {
+                position: absolute;
+                margin-right: 50%;
+                transform: translateX(50%);
+                line-height: 32px;
+                text-align: center;
+                position: absolute;
+    }
+
+    .editor,
+    .display {
+        width: calc(50% - 2px);
+        height: calc(100vh - 76px);
+        padding: 4px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+        }
+
+        .display::-webkit-scrollbar,
+        .editor::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .display::-webkit-scrollbar-track,
+        .editor::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px var(--scrollbar-track-color);
+        }
+
+        .display::-webkit-scrollbar-thumb,
+        .editor::-webkit-scrollbar-thumb {
+            background-color: var(--scrollbar-thumb-color);
+            outline: 1px solid #708090;
+        }
+
+        .display::-webkit-scrollbar-corner,
+        .editor::-webkit-scrollbar-corner {
+            display: none;
+    }
+
+    .display {
+        margin-left: 2px;
+        resize: none;
+        overflow-y: auto;
+        overflow-x: auto;
+        border: 1px rgb(100, 100, 100) solid;
+        font-size: 13.33px;
+        font-family: "Consolas";
+}
+
+button {
+    border: 1px solid rgba(0, 0, 0, .2);
+    white-space: normal;
+    padding: 8px 16px;
+}
+
+button:active {
+    background-color: #bbb;
+}
+
+.warning {
+    background-color: #ff5252;
+    position: absolute;
+    top: 0; left: 0;
+    height: 62vh;
+    width: 100vw;
+    padding-top: 38vh;
+    color: black;
+    font-size: 25px;
+    overflow-wrap: break-word;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Markdown display styling */
+.display p {
+    /* Copy GitHub style */
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+pre.prettyprint {
+    border: 1px solid #444;
+    background: #222;
+    margin: 7px;
+}
+
+a,
+a:link,
+a:hover {
+    color: #83bcfe;
+}
+
+a:-webkit-any-link {
+    color: #83bcfe;
+}
+
+.linenums {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
+    color: #494949;
+    background: inherit;
+}
+
+code.plain,
+code.plain * {
+    color: #ccc;
+}
+
+pre.safe {
+    font-family: "Consolas" !important;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 1px;
+    margin: 0px 0.35em 0.25em -1.6em;
+    padding: 5px;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    border-radius: 2px;
+    }
+
+    input[type="checkbox"]:checked:after {
+        content: '\2714';
+        position: absolute;
+        top: -3px;
+        left: 0px;
+        font-size: 12px;
+        font-weight: bold;
+        color: black;
+}
+
+/* Highlight buttons on devices with a mouse and/or keyboard */
+@media (pointer: fine), (pointer: none) {
+    button:hover:not(.enabled) {
+        background-color: #999;
+        color: #eee;
+    }
+}
+
+/* No button focus outline except on devices that only have a keyboard */
+@media (pointer: fine), (pointer: coarse) {
+    button:focus {
+        outline: none;
+    }
+}

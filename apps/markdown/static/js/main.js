@@ -3,7 +3,6 @@ function _contains(haystack, needle) {
     return (needle in ['\n', '\r\n']) ? (/\r?\n/).exec(haystack) !== null : haystack.indexOf(needle) !== -1;
 }
 
-// ----
 function rfind(needle, haystack, boundary='') {
     let curpos = haystack.length - 1,
         sofar   = '',
@@ -72,47 +71,45 @@ class KeybindHandler {
     _set_timeout(elem) {
         // Wait for user to stop typing to turn markdown into HTML
         
-        let bind_id  = elem.parentElement.getAttribute('data-bind'),
+        let bind_id  = elem.parentElement.parentElement.getAttribute('data-bind'),
             markdown = elem.value;
         
         if (this._timeout !== -1) {
             clearTimeout(this._timeout);
         }
         
-        this._timeout = setTimeout(
-            (bind_id, markdown) => {
-                window.markdown_worker.postMessage([bind_id, markdown]);
-            },
-            200, bind_id, elem.value
-        );
+        this._timeout = setTimeout((bind_id, markdown) => {
+            window.markdown_worker.postMessage([bind_id, markdown]);
+        }, 200, bind_id, markdown);
     }
     
     // --
     tab(evt) {
         let elem = this._elem,
-            prev_cursor       = elem.selectionStart + 0,
+            prev_cursor = elem.selectionStart + 0,
             new_cursor_offset = 0;
-        
+
         if (evt.getModifierState('Shift')) {
             let before    = elem.value.substr(0, prev_cursor);
             let tab_start = rfind('    ', before, '\n');
-            
+
             if (tab_start !== -1) {
                 elem.selectionStart = tab_start;
                 elem.selectionEnd   = tab_start + 4;
-                
+
                 document.execCommand('delete');
+                new_cursor_offset = -4;
             }
 
         } else {
             document.execCommand('insertText', false, '    ');
             new_cursor_offset = 4;
         }
-        
+
         elem.selectionStart = prev_cursor + new_cursor_offset;
         elem.selectionEnd   = prev_cursor + new_cursor_offset;
     }
-    
+
     s(evt) {
         if (evt.getModifierState('Control')) {
             // TODO: save data here
@@ -124,25 +121,21 @@ class KeybindHandler {
 function handle_file_drop(event) {
     event.preventDefault();
     
-    let editor = event.target;
+    let editor = event.target,
+        markdown_pair = editor.parentElement.parentElement;
     
     if (event.dataTransfer.items) {
         for (var i = 0; i < event.dataTransfer.items.length; i++) {
-            // Ignore non-file items
             if (event.dataTransfer.items[i].kind === 'file') {
                 let file = event.dataTransfer.items[i].getAsFile();
 
                 file.text()
                     .then((data) => {
-                        editor.innerHTML = data;
-                        editor.parentElement.querySelector('.file-name').innerText = file.name;
-                    })
-                    .then(PR.prettyPrint
-                    /*() => {
-                        if (file.name.indexOf('.md') !== -1) {
-                            ();
-                    }*/
-                ); 
+                        editor.value = data;
+                        markdown_pair.querySelector('.file-name').innerText = file.name;
+                        window.markdown_worker.postMessage([markdown_pair.getAttribute('data-bind'), data]);
+                    }
+                );
             }
         }
 
@@ -152,42 +145,36 @@ function handle_file_drop(event) {
 
             file.text()
                 .then((data) => {
-                    editor.innerHTML = data;
-                    editor.parentElement.querySelector('.file-name').innerText = file.name;
-                })
-                .then(PR.prettyPrint
-                /*() => {
-                    if (file.name.indexOf('.md') !== -1) {
-                        PR.prettyPrint();
-                }*/
-            ); 
+                    editor.value = data;
+                    markdown_pair.querySelector('.file-name').innerHTML = file.name;
+                    window.markdown_worker.postMessage([markdown_pair.getAttribute('data-bind'), data]);
+                }
+            );
         }
     }
 }
 
-// ----
-function replaceAll(str, search, replacement, i=true) {
-    let res = str.replace(new RegExp(search, 'g' + (i ? 'i' : '')), replacement);
-    return res ? res : str;
-};
+function add_editor() {
+    let container = document.querySelector('.content'),
+        bind      = 0;
 
-// ----
-function purify_html(html) {
-    let out = html,
-        getter = new RegExp('<(?![! \/]*(p|pre|ol|li|code|span|a|h[0-9]|b)).*\/?>', 'gi');
+    document.querySelectorAll('.markdown-pair').forEach((elem) => {
+        bind = Math.max(Number(elem.getAttribute('data-bind')), bind);
+    });
 
-    out = replaceAll(out, '\\[1]', '<pre class="safe">&bsol;</pre>');
-    
-    while ((matches = getter.exec(out)) !== null) {
-        fixed = replaceAll(matches[0], '<', '&lt;'); //
-        fixed = replaceAll(fixed, '>', '&gt;'); //
-        out = out.replace(matches[0], fixed);
-    }
-    
-    // Replace &lt;/p&gt;</p> with </p> at end of each p tag
-    // out = replaceAll(out, '&lt;/p&gt;</p>', '</p>');
-    
-    return out;
+    const new_elements = make_editor(String(bind + 1)),
+          editor       = new_elements.querySelector('.editor'),
+          open_tab     = new_elements.querySelectorAll('.tab');
+
+    container.appendChild(new_elements);
+    open_tab.addEventListener('click', createPicker);
+    handler = new KeybindHandler(editor, window.markdown_worker);
+    window.keybind_handlers.push(handler);
+}
+
+function switch_theme() {
+    let s_elem = document.querySelector('#custom-theme');
+    s_elem.disabled = !s_elem.disabled;
 }
 
 // ----
@@ -198,12 +185,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let bind_id = ev.data[0],
             html    = ev.data[1],
             md_div  = document.querySelector('div[data-bind="' + bind_id + '"] .display');
-        
+
         md_div.innerHTML = html;
         PR.prettyPrint();
     };
 
-    // ----
     // Make sure handlers are never garbage collected
     window.keybind_handlers = [];
 
@@ -212,4 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.keybind_handlers.push(handler);
         iter_elem.addEventListener('drop', handle_file_drop);
     });
+
+    document.querySelector('#add-editor').addEventListener('click', add_editor);
+    document.querySelector('#switch-theme').addEventListener('click', switch_theme);
 });
