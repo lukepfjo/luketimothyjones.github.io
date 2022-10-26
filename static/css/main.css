@@ -5,16 +5,17 @@
 :root {
     --light-background: #a8d0e6;
     --dark-background: #24305e;
-    --light-text-color: white;
-    --dark-text-color: #24305e;
-    --portfolio-card-color: rgba(0,0,0, .75);
+    --light-text-color: #ffffff;
+    --dark-text-color: #2a2a2a;
+	--portfolio-item-background: #a1b1f8;
+	--contact-button-background: #24305e;
     --url-bar-height: 0;
 }
 
 body {
     margin: 0px;
     background-color: var(--light-background);
-    color: var(--light-text-color);
+    color: var(--dark-text-color);
     font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
@@ -147,7 +148,7 @@ body {
 
     #portfolio > h2 {
         text-align: center;
-        color: var(--dark-text-color);
+        color: var(--dark-background);
     }
 
     #portfolio-items {
@@ -167,7 +168,7 @@ body {
             justify-self: center;
             margin: 12px;
             padding: 20px;
-            background-color: var(--portfolio-card-color);
+            background-color: var(--portfolio-item-background);
             }
 
             .portfolio-item .portfolio-img-container {
@@ -207,13 +208,13 @@ body {
         font-weight: 600;
         font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
         color: var(--light-text-color);
-        background-color: var(--dark-background);
+        background-color: var(--contact-button-background);
         box-shadow: 0px 0px 8px #888;
         cursor: pointer;
         }
 
         #get-in-touch button:hover {
-            box-shadow: 0px 0px 8px #aaa;
+            box-shadow: 0px 0px 8px #ccc;
     }
 
     #get-in-touch > span {
@@ -240,7 +241,7 @@ body {
 }
 
 footer {
-    margin: 100px 0 15px 0;
+    padding: 100px 0 15px 0;
     }
 
     footer > span {
