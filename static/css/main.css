@@ -7,6 +7,7 @@
     --dark-background: #24305e;
     --light-text-color: #ffffff;
     --dark-text-color: #2a2a2a;
+	--profile-item-text-color: #000000;
 	--portfolio-item-background: #a1b1f8;
 	--contact-button-background: #24305e;
     --url-bar-height: 0;
@@ -168,6 +169,7 @@ body {
             justify-self: center;
             margin: 12px;
             padding: 20px;
+			color: var(--profile-item-text-color);
             background-color: var(--portfolio-item-background);
             }
 
@@ -221,7 +223,7 @@ body {
         display: block;
         text-align: center;
         margin: 12px 0 -31px 0;  /* -31px cancels page shift */
-        color: var(--dark-text-color);
+        color: var(--profile-item-text-color);
         }
 
         /* Copy icon */
