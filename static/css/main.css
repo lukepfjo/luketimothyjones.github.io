@@ -7,10 +7,44 @@
     --dark-background: #24305e;
     --light-text-color: #ffffff;
     --dark-text-color: #2a2a2a;
-	--profile-item-text-color: #000000;
-	--portfolio-item-background: #a1b1f8;
+	--profile-title-text-color: #000;
+	--profile-item-text-color: #000;
+	--portfolio-item-background: #badaeb;
 	--contact-button-background: #24305e;
     --url-bar-height: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--dark-background: #1d274c;
+		--light-background: #21163a;
+		--portfolio-item-background: #291b48;
+		--dark-text-color: #fff;
+		--profile-title-text-color: #fff;
+		--profile-item-text-color: #fff;
+	}
+	
+	#get-in-touch buttton {
+		box-shadow: none;
+	}
+
+	#get-in-touch buttton:hover {
+		box-shadow: 0px 0px 8px #666;
+	}
+	
+	#get-in-touch span img {
+		filter: invert(1);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	#get-in-touch button {
+		box-shadow: 0px 0px 8px #888;
+	}
+
+	#get-in-touch button:hover {
+		box-shadow: 0px 0px 8px #ccc;
+	}
 }
 
 body {
@@ -149,7 +183,7 @@ body {
 
     #portfolio > h2 {
         text-align: center;
-        color: var(--dark-background);
+        color: var(--profile-title-text-color);
     }
 
     #portfolio-items {
@@ -211,13 +245,8 @@ body {
         font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
         color: var(--light-text-color);
         background-color: var(--contact-button-background);
-        box-shadow: 0px 0px 8px #888;
         cursor: pointer;
         }
-
-        #get-in-touch button:hover {
-            box-shadow: 0px 0px 8px #ccc;
-    }
 
     #get-in-touch > span {
         display: block;
