@@ -23,15 +23,23 @@
 		--profile-title-text-color: #fff;
 		--profile-item-text-color: #fff;
 	}
-	
-	#get-in-touch buttton {
-		box-shadow: none;
-	}
 
-	#get-in-touch buttton:hover {
+    a {
+        color: #2894ff;
+        }
+
+        a:visited {
+            color: #6060ff;
+            }
+
+            a:visited:hover {
+                color: #ffffff;
+    }
+
+	#get-in-touch button:hover {
 		box-shadow: 0px 0px 8px #666;
 	}
-	
+
 	#get-in-touch span img {
 		filter: invert(1);
 	}
@@ -40,10 +48,10 @@
 @media (prefers-color-scheme: light) {
 	#get-in-touch button {
 		box-shadow: 0px 0px 8px #888;
-	}
+        }
 
-	#get-in-touch button:hover {
-		box-shadow: 0px 0px 8px #ccc;
+        #get-in-touch button:hover {
+            box-shadow: 0px 0px 8px #ccc;
 	}
 }
 
@@ -99,7 +107,7 @@ body {
 
                 #links img:hover {
                     box-shadow: 0px 0px 8px #555;
-}
+	}
 
     #name-box {
         display: flex;
